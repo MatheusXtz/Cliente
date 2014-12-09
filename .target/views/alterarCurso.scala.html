@@ -1,0 +1,37 @@
+@(id:Long,userForm:Form[Cliente]) 
+
+
+@main("Alterar Cliente"){
+<div class="container">
+<div class="header">
+	<ul class="nav nav-pills pull-right">
+			<li class="active"><a href="/">Home</a></li>
+		</ul>
+		</div>
+		
+		@helper.form(routes.UserCrud.alterar(id)) {
+      <form class="form-horizontal">
+		
+		<legend>Alterar Cliente</legend>
+
+		<div class="control-group">
+		  <div class="controls">
+
+		 @helper.inputText(userForm("nome"), '_label -> "Nome do Usuario:")
+
+		 </div>
+		</div>
+		
+
+		<div class="control-group">
+		  <label class="control-label" for="singlebutton"></label>
+		  <div class="controls">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Gravar</button>
+		  </div>
+		</div>
+}
+	
+
+</div>	
+
+}

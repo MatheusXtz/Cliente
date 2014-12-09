@@ -1,0 +1,69 @@
+@(users: List[Cliente])
+
+@main("Cliente"){
+
+<div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="/">Home</a></li>
+        </ul>
+      </div>
+      
+      @helper.form(action=routes.UserCrud.gravar()) {
+      <form class="form-horizontal">
+		
+		<legend>Novo User</legend>
+
+		<div class="control-group">
+		  <div class="controls">
+
+		  <dl>
+		  	<dt><label for="nome">Nome:</label></dt>
+		  	<dd><input type="text" id="nome" name="nome" placeholder=""></dd>
+		  </dl>
+
+		  
+
+		  
+		  </div>
+		</div>
+		
+
+		<div class="control-group">
+		  <label class="control-label" for="singlebutton"></label>
+		  <div class="controls">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Gravar</button>
+		  </div>
+		</div>
+}
+      
+  </div>
+  <hr>
+
+ <h1>Lista de Clientes</h1>
+		  	<table class="table table-striped table-bordered" id="example"
+cellpadding="0" cellspacing="0" border="0" width="100%">
+		  		<thead>
+		  			<tr>
+		  				<td>Código</td>
+		  				<td>Nome</td>
+		  				<td>Remover</td>
+		  				</tr>
+		  		</thead>
+		  		<tbody>
+		  		@for(user <- users){
+		  			<tr>
+		  				<td><a href="@routes.UserCrud.detalhar(user.getIdCliente())">@user.getIdCliente()</a></td>
+		  				<td>@user.getNome()</td>
+		  				<td>@helper.form(routes.UserCrud.remover(user.getIdCliente())){
+		  				<input type="submit" value="Remover" class="btn danger">
+		  				}</td>
+		  				
+		  				
+		  				</td>
+		  			</tr>
+		  			}
+		  		</tbody>
+		  	</table>
+
+} 
