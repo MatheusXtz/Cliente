@@ -9,6 +9,7 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 GET    /user                       controllers.UserCrud.listarUser()
+GET    /visu                     controllers.UserCrud.visu()
 POST  /user					    controllers.UserCrud.gravar()
 GET   /user/:id                    controllers.UserCrud.detalhar(id:Long)
 POST  /user/:id                     controllers.UserCrud.alterar(id:Long)

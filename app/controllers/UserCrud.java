@@ -16,6 +16,10 @@ public class UserCrud extends Controller {
 		List<Cliente> users = Cliente.find.findList();
 		return ok(views.html.curso.render(users));
 	}
+	public static Result visu() {
+		List<Cliente> users = Cliente.find.findList();
+		return ok(views.html.visu.render(users));
+	}
 	public static Result gravar() {
 		Form<Cliente> form = userForm.bindFromRequest();
 
